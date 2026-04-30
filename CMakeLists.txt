@@ -4,6 +4,9 @@
 
 cmake_minimum_required(VERSION 3.20)
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_SOURCE_DIR}/FlyIC.Kernel.Base/include)
+
 add_subdirectory(FlyIC.Kernel.Base ${CMAKE_SOURCE_DIR}/KernelBaseBuild)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
@@ -11,9 +14,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
 
 set(ProjectName FlyIC.Kernel.MemFunc)
 project(${ProjectName})
-
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_SOURCE_DIR}/FlyIC.Kernel.Base/include)
 
 set(COMPILE_BASE_FLAGS -nostdlib -ffreestanding -nostdinc++ -fno-exceptions -fno-rtti -fno-stack-protector -Wall -Wextra --target=x86_64-pc-linux-gnu)
 set(LINK_BASE_FLAGS -nostdlib -Wl,e,startup -fuse-ld=lld)
@@ -24,7 +24,7 @@ else()
 	set(COMPILE_EXT_FLAGS -g0 -O2)
 endif()
 
-include_directories(${CMAKE_SOURCE_DIR}/include)
+add_library(${ProjectName} STATIC src/lib.cpp)
 
 set_target_properties(${ProjectName} PROPERTIES PREFIX "${CMAKE_BUILD_TYPE} ")
 
