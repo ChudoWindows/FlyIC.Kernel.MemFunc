@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.20)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/FlyIC.Kernel.Base/include)
 
-add_subdirectory(FlyIC.Kernel.Base ${CMAKE_SOURCE_DIR}/KernelBaseBuild)
+add_subdirectory(FlyIC.Kernel.Base ${CMAKE_CURRENT_SOURCE_DIR}/KernelBaseBuild)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE})
