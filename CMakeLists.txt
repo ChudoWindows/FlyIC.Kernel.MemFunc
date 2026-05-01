@@ -4,6 +4,8 @@
 
 cmake_minimum_required(VERSION 3.20)
 
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
 include_directories(${CMAKE_SOURCE_DIR}/include)
 include_directories(${CMAKE_SOURCE_DIR}/FlyIC.Kernel.Base/include)
 
